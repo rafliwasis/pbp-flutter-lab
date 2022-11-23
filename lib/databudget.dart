@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:counter_7/model/budget.dart';
 import 'package:counter_7/main.dart';
 import 'package:counter_7/form.dart';
+import 'package:counter_7/model/mywatchlist.dart';
+import 'package:counter_7/datawatchlist.dart';
 
 class dataBudget extends StatefulWidget {
   const dataBudget({super.key});
@@ -49,9 +51,18 @@ class _dataBudgetState extends State<dataBudget> {
                 // Route menu ke halaman utama
                 Navigator.pushReplacement(
                   context,
+                  MaterialPageRoute(builder: (context) => const dataBudget()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('My Watchlist'),
+              onTap: () {
+                // Route menu ke halaman utama
+                Navigator.pushReplacement(
+                  context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          const dataBudget()),
+                      builder: (context) => const dataWatchlist()),
                 );
               },
             ),
@@ -81,6 +92,9 @@ class _dataBudgetState extends State<dataBudget> {
                     color: Colors.black,
                   )),
             ),
+
+      
+
           );
         },
         itemCount: MyBudget.getList().length,
